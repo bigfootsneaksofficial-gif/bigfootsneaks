@@ -1,0 +1,252 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>BigFoot Sneaks — Daily Deals</title>
+  <meta name="description" content="BigFoot Sneaks: hand-picked daily deals under €20 and hot drops from Nike, Amazon, and more." />
+  <meta name="robots" content="index, follow" />
+  <link rel="icon" href="/favicon.ico" />
+  <style>
+    :root{
+      --bfs-bg:#0f0f12;         /* page bg */
+      --bfs-card:#17171c;       /* card bg */
+      --bfs-ink:#e9eef3;        /* primary text */
+      --bfs-ink-dim:#b7c2cc;    /* secondary text */
+      --bfs-accent:#ff6a00;     /* CTA/orange (mic) */
+      --bfs-accent-2:#19c37d;   /* green (glasses) */
+      --bfs-border:#272733;     /* soft borders */
+      --maxw:1120px;
+    }
+    *{box-sizing:border-box}
+    html,body{margin:0;padding:0;background:var(--bfs-bg);color:var(--bfs-ink);font:16px/1.5 system-ui,-apple-system,Segoe UI,Roboto,Ubuntu,"Helvetica Neue",Arial}
+    a{color:inherit;text-decoration:none}
+    .wrap{max-width:var(--maxw);margin:0 auto;padding:20px}
+    header{display:flex;align-items:center;gap:16px;padding:18px 0 8px;border-bottom:1px solid var(--bfs-border)}
+    header img.logo{width:40px;height:40px;border-radius:10px;object-fit:cover;box-shadow:0 0 0 2px var(--bfs-accent-2)}
+    header .brand{display:flex;flex-direction:column}
+    header .brand b{font-size:1.1rem}
+    header .brand span{color:var(--bfs-ink-dim);font-size:.9rem}
+    .hero{display:flex;justify-content:space-between;align-items:center;gap:16px;padding:18px 0}
+    .hero h1{margin:0;font-size:1.8rem}
+    .hero .badge{display:inline-flex;align-items:center;gap:8px;background:linear-gradient(90deg,var(--bfs-accent-2),var(--bfs-accent));padding:8px 12px;border-radius:999px;color:#08140c;font-weight:700}
+    .controls{display:grid;grid-template-columns:1fr 180px 180px;gap:12px;margin:8px 0 18px}
+    .controls input,.controls select{width:100%;padding:10px 12px;border:1px solid var(--bfs-border);border-radius:10px;background:#0d0d10;color:var(--bfs-ink)}
+    .grid{display:grid;grid-template-columns:repeat(1,minmax(0,1fr));gap:14px}
+    @media(min-width:640px){.grid{grid-template-columns:repeat(2,minmax(0,1fr))}}
+    @media(min-width:960px){.grid{grid-template-columns:repeat(3,minmax(0,1fr))}}
+    .card{background:var(--bfs-card);border:1px solid var(--bfs-border);border-radius:14px;overflow:hidden;display:flex;flex-direction:column}
+    .media{aspect-ratio:16/9;display:block;background:#0a0a0d}
+    .media img{width:100%;height:100%;object-fit:cover;display:block}
+    .body{padding:12px 14px;display:flex;flex-direction:column;gap:8px}
+    .title{font-weight:700;font-size:1rem}
+    .meta{display:flex;justify-content:space-between;align-items:center;color:var(--bfs-ink-dim);font-size:.9rem}
+    .tags{display:flex;flex-wrap:wrap;gap:6px}
+    .tag{font-size:.75rem;padding:4px 8px;border-radius:999px;border:1px solid var(--bfs-border);color:var(--bfs-ink-dim)}
+    .cta{display:flex;gap:8px;margin-top:auto}
+    .btn{flex:1;text-align:center;padding:10px 12px;border-radius:10px;border:1px solid var(--bfs-border);background:#0d0d10;color:var(--bfs-ink)}
+    .btn.primary{background:var(--bfs-accent);color:#111;font-weight:800;border-color:transparent}
+    .btn.primary:hover{filter:brightness(.95)}
+    .btn.secondary{border-color:var(--bfs-accent-2);color:var(--bfs-accent-2)}
+    footer{margin:28px 0 8px;color:var(--bfs-ink-dim);font-size:.85rem;border-top:1px solid var(--bfs-border);padding-top:12px;display:flex;justify-content:space-between;gap:10px;flex-wrap:wrap}
+    .pill{display:inline-flex;align-items:center;gap:6px;padding:6px 10px;border-radius:999px;border:1px solid var(--bfs-border);color:var(--bfs-ink-dim)}
+    .empty{opacity:.7;border:1px dashed var(--bfs-border);padding:24px;border-radius:14px;text-align:center}
+  </style>
+</head>
+<body>
+  <div class="wrap">
+    <header>
+      <img class="logo" src="/bfs-logo.png" alt="BFS" onerror="this.style.display='none'">
+      <div class="brand">
+        <b>BigFoot Sneaks</b>
+        <span>Daily deals • Under €20 • Trusted links</span>
+      </div>
+    </header>
+
+    <section class="hero">
+      <h1>Today’s Picks</h1>
+      <span class="badge">⚡ Updated daily</span>
+    </section>
+
+    <section class="controls">
+      <input id="q" type="search" placeholder="Search products… (e.g. cable, Nike, dog)" />
+      <select id="cat">
+        <option value="">All categories</option>
+      </select>
+      <select id="price">
+        <option value="">Any price</option>
+        <option value="under20">Under €20</option>
+        <option value="under30">Under €30</option>
+      </select>
+    </section>
+
+    <section id="list" class="grid" aria-live="polite"></section>
+
+    <div id="empty" class="empty" style="display:none">No deals match your filters. Try clearing search/price.</div>
+
+    <footer>
+      <div class="pill">🦍 Kuch kuch, here we go!</div>
+      <div class="pill">© <span id="y"></span> BigFoot Sneaks</div>
+    </footer>
+  </div>
+
+  <script>
+  // ======== CONFIG (edit this block only) ========
+  const BFS_SETTINGS = {
+    currency: '€',
+    brandColor: '#ff6a00',     // CTA
+    brandAccent: '#19c37d',    // Accent
+    // Optional: turn on UTM on outbound links
+    utm: '?utm_source=bfs&utm_medium=site&utm_campaign=deals',
+    products: [
+      // --- SAMPLE DEALS (replace with your own) ---
+      {
+        id: 'ugreen100w-nl',
+        title: 'UGREEN USB‑C Cable 100W PD 3.0 (1m)',
+        price: 7.99,
+        merchant: 'Amazon NL',
+        category: 'Tech',
+        image: 'https://images.unsplash.com/photo-1585445490387-1f4d1f3a1dba?q=80&w=1200&auto=format&fit=crop',
+        url: 'https://amzn.to/42ZuFDV', // your PartnerNet link
+        badges: ['Under €20','Bestseller']
+      },
+      {
+        id: 'anker-cc-100w-de',
+        title: 'Anker USB‑C to USB‑C Cable (100W, Nylon, 2‑pack)',
+        price: 8.49,
+        merchant: 'Amazon DE',
+        category: 'Tech',
+        image: 'https://images.unsplash.com/photo-1609592424700-1b9e16f3f7a3?q=80&w=1200&auto=format&fit=crop',
+        url: 'https://amzn.to/4pT6ukv',
+        badges: ['Under €20']
+      },
+      {
+        id: 'nike-50-nl',
+        title: 'Nike Sneakers — 50% Off Today (NL)',
+        price: null,
+        merchant: 'Nike via Sovrn',
+        category: 'Fashion',
+        image: 'https://images.unsplash.com/photo-1542291026-7eec264c27ff?q=80&w=1200&auto=format&fit=crop',
+        url: 'https://sovrn.co/4zaqqw5',
+        badges: ['Hot drop']
+      },
+      {
+        id: 'clean-microfiber',
+        title: 'MR.SIGA Microfiber Cloths (12‑pack)',
+        price: 16.99,
+        merchant: 'Amazon DE',
+        category: 'Home',
+        image: 'https://images.unsplash.com/photo-1581578731548-c64695cc6952?q=80&w=1200&auto=format&fit=crop',
+        url: '#',
+        badges: ['Under €20']
+      },
+      {
+        id: 'pets-bowls',
+        title: 'Dog Food & Water Bowl Set (Non‑Slip)',
+        price: 13.91,
+        merchant: 'Amazon DE',
+        category: 'Pets',
+        image: 'https://images.unsplash.com/photo-1546443046-ed1ce6ffd1ed?q=80&w=1200&auto=format&fit=crop',
+        url: '#',
+        badges: ['Under €20']
+      }
+    ]
+  };
+  // ==============================================
+
+  // Apply brand colors
+  document.documentElement.style.setProperty('--bfs-accent', BFS_SETTINGS.brandColor);
+  document.documentElement.style.setProperty('--bfs-accent-2', BFS_SETTINGS.brandAccent);
+  document.getElementById('y').textContent = new Date().getFullYear();
+
+  const $list = document.getElementById('list');
+  const $empty = document.getElementById('empty');
+  const $q = document.getElementById('q');
+  const $cat = document.getElementById('cat');
+  const $price = document.getElementById('price');
+
+  // Build category options
+  const cats = [...new Set(BFS_SETTINGS.products.map(p=>p.category).filter(Boolean))].sort();
+  for(const c of cats){
+    const opt = document.createElement('option');
+    opt.value = c; opt.textContent = c; $cat.appendChild(opt);
+  }
+
+  function formatPrice(v){
+    if(v==null) return '';
+    try{ return new Intl.NumberFormat('nl-NL',{style:'currency',currency:'EUR'}).format(v); }catch(e){
+      return `${BFS_SETTINGS.currency}${v.toFixed(2)}`;
+    }
+  }
+
+  function applyFilters(){
+    const query = ($q.value||'').trim().toLowerCase();
+    const cat = $cat.value;
+    const price = $price.value;
+    const items = BFS_SETTINGS.products.filter(p=>{
+      const qok = !query || (p.title+" "+(p.merchant||'')+" "+(p.category||'')).toLowerCase().includes(query);
+      const cok = !cat || p.category===cat;
+      const pok = !price || (price==='under20'? (p.price!=null && p.price<=20) : price==='under30'? (p.price!=null && p.price<=30) : true);
+      return qok && cok && pok;
+    });
+    render(items);
+  }
+
+  function render(items){
+    $list.innerHTML='';
+    if(!items.length){ $empty.style.display='block'; return; }
+    $empty.style.display='none';
+    for(const p of items){
+      const card = document.createElement('article');
+      card.className='card';
+      const img = document.createElement('div');
+      img.className='media';
+      img.innerHTML = `<img alt="${p.title}" src="${p.image}" loading="lazy"/>`;
+      const body = document.createElement('div');
+      body.className='body';
+
+      const title = document.createElement('div');
+      title.className='title';
+      title.textContent = p.title;
+
+      const meta = document.createElement('div');
+      meta.className='meta';
+      meta.innerHTML = `<span>${p.merchant||''}</span><b>${formatPrice(p.price)}</b>`;
+
+      const tags = document.createElement('div');
+      tags.className='tags';
+      (p.badges||[]).forEach(t=>{
+        const b = document.createElement('span');
+        b.className='tag';
+        b.textContent=t; tags.appendChild(b);
+      });
+
+      const cta = document.createElement('div');
+      cta.className='cta';
+      const a = document.createElement('a');
+      a.className='btn primary';
+      a.href = p.url ? p.url + (BFS_SETTINGS.utm||'') : '#';
+      a.target='_blank'; a.rel='noopener';
+      a.textContent='Shop Now';
+
+      const save = document.createElement('a');
+      save.className='btn secondary';
+      save.href = `https://www.pinterest.com/pin/create/button/?url=${encodeURIComponent(location.href)}&media=${encodeURIComponent(p.image)}&description=${encodeURIComponent(p.title)}`;
+      save.target='_blank'; save.rel='noopener';
+      save.textContent='Save Pin';
+
+      cta.appendChild(a); cta.appendChild(save);
+      body.appendChild(title); body.appendChild(meta); body.appendChild(tags); body.appendChild(cta);
+
+      card.appendChild(img); card.appendChild(body);
+      $list.appendChild(card);
+    }
+  }
+
+  $q.addEventListener('input', applyFilters);
+  $cat.addEventListener('change', applyFilters);
+  $price.addEventListener('change', applyFilters);
+  applyFilters();
+  </script>
+</body>
+</html>
