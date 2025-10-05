@@ -5,230 +5,218 @@
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <title>bigfootsneaks — Super Sneaks Deals • Under €10 / €20 • Hot drops.</title>
 <meta name="description" content="BigFootSneaks • Super Sneaks Deals • Under €10 / €20 • Hot drops & daily steals." />
-<meta name="robots" content="index, follow" />
 <link rel="icon" href="./favicon.ico" />
 <style>
 :root{
-  --bfs-orange:#f7a808;           /* brand orange */
-  --bfs-orange-deep:#f17600;      /* shadow/orange */
-  --ink:#111317;                  /* dark text */
-  --bfs-card:#ffffff;             /* card bg */
-  --bfs-muted:#6b7480;            /* dim text */
-  --bfs-line:#e7ecf2;             /* borders */
-  --bfs-green:#19c37d;            /* accent green */
-  --bfs-red:#ff3b30;              /* urgent */
-  --bfs-yellow:#ffd400;           /* label alt */
+  --bfs-orange:#f7a808;
+  --bfs-orange-deep:#f17600;
+  --ink:#111317;
+  --bfs-card:#ffffff;
+  --bfs-muted:#6b7480;
+  --bfs-line:#e7ecf2;
   --maxw:1200px;
 }
 
+/* RESET */
 *{box-sizing:border-box}
 html,body{margin:0;padding:0;font:16px/1.5 system-ui,-apple-system,Segoe UI,Roboto,Ubuntu,"Helvetica Neue",Arial;color:#222;background:#fafafa}
 a{color:inherit;text-decoration:none}
 img{max-width:100%;display:block}
 
-/* Header (orange hero) */
+/* HERO */
 .hero{background:linear-gradient(0deg,var(--bfs-orange-deep),var(--bfs-orange));color:#fff}
-.hero-inner{max-width:var(--maxw);margin:0 auto;padding:28px 16px 18px 16px;display:grid;grid-template-columns:1fr 360px;gap:24px;align-items:center}
+.hero-inner{max-width:var(--maxw);margin:0 auto;padding:28px 16px 18px;display:grid;grid-template-columns:1fr 360px;gap:24px;align-items:center}
 @media(max-width:980px){.hero-inner{grid-template-columns:1fr}}
-
-.logo-title{font-weight:900;font-size:56px;letter-spacing:.5px;line-height:1;position:relative;margin:0 0 8px}
-.logo-title::after{content:"bigfootsneaks";position:absolute;left:4px;top:4px;color:rgba(255,255,255,.35);filter:blur(2px);z-index:0}
+.logo-title{font-weight:900;font-size:56px;letter-spacing:.5px;margin:0 0 8px}
 .strap{margin:0;color:rgba(255,255,255,.9)}
-
-.hero-left{padding-right:8px}
 .hero-right{display:flex;justify-content:center;align-items:flex-end}
 .mascot{max-height:220px;filter:drop-shadow(0 10px 18px rgba(17,19,23,.25))}
 @media(max-width:980px){.mascot{max-height:200px;margin:4px auto 0}}
 
+/* SECTION */
 .wrap{max-width:var(--maxw);margin:0 auto;padding:18px 16px}
 .section-title{display:flex;align-items:center;gap:10px;margin:10px 0 8px}
 .section-title h2{margin:0;font-size:1.25rem}
 .pill{display:inline-flex;align-items:center;gap:6px;padding:6px 10px;border-radius:999px;background:#111317;color:#fff;font-weight:700}
-.pill .dot{width:8px;height:8px;border-radius:50%;display:inline-block;background:linear-gradient(0deg,#ff9922,#ff5a1f)}
+.pill .dot{width:8px;height:8px;border-radius:50%;background:linear-gradient(0deg,#ff9922,#ff5a1f)}
 
-/* Layout */
-.layout{display:grid;grid-template-columns:1fr;gap:24px}
-
-/* ===== Label bar (kleurverloop) ===== */
-.labelbar{height:10px;border-radius:0 0 14px 14px; overflow:hidden}
+/* LABELBARS */
+.labelbar{height:10px;border-radius:0 0 14px 14px;overflow:hidden}
 .labelbar > span{display:block;height:100%}
-.labelbar .l1{background:linear-gradient(90deg,#121214 0%,#3c3f46 100%)}           /* zwart/antraciet */
-.labelbar .l2{background:linear-gradient(90deg,#2b56ff 0%,#7aa2ff 100%)}           /* blauw */
-.labelbar .l3{background:linear-gradient(90deg,#0acf5a 0%,#89f7b2 100%)}           /* groen */
-.labelbar .l4{background:linear-gradient(90deg,#ff3b30 0%,#ff7b73 100%)}           /* rood */
-.labelbar .l5{background:linear-gradient(90deg,#9c27ff 0%,#cf9bff 100%)}           /* paars */
-.labelbar .l6{background:linear-gradient(90deg,#ffb300 0%,#ffd36b 100%)}           /* oranje/geel */
-.card .labelbar{box-shadow: inset 0 1px 0 rgba(17,19,23,.06)}
+.labelbar .l1{background:linear-gradient(90deg,#121214 0%,#3c3f46 100%)}
+.labelbar .l2{background:linear-gradient(90deg,#2b56ff 0%,#7aa2ff 100%)}
+.labelbar .l3{background:linear-gradient(90deg,#0acf5a 0%,#89f7b2 100%)}
+.labelbar .l4{background:linear-gradient(90deg,#ff3b30 0%,#ff7b73 100%)}
+.labelbar .l5{background:linear-gradient(90deg,#9c27ff 0%,#cf9bff 100%)}
+.labelbar .l6{background:linear-gradient(90deg,#ffb300 0%,#ffd36b 100%)}
+.card .labelbar{box-shadow:inset 0 1px 0 rgba(17,19,23,.06)}
 
-/* Grids */
+/* GRID */
 .grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:16px}
 @media(max-width:980px){.grid{grid-template-columns:repeat(2,minmax(0,1fr))}}
 @media(max-width:640px){.grid{grid-template-columns:1fr}}
 
-/* Kaarten */
-.card{background:var(--bfs-card);border:1px solid var(--bfs-line);border-radius:14px;overflow:hidden;display:flex;flex-direction:column;box-shadow:0 6px 18px rgba(17,19,23,.06)}
+/* CARD */
+.card{background:var(--bfs-card);border:1px solid var(--bfs-line);border-radius:14px;overflow:hidden;display:flex;flex-direction:column;box-shadow:0 6px 18px rgba(17,19,23,.06);transition:transform .18s ease,box-shadow .18s ease}
+.card:hover{transform:translateY(-4px);box-shadow:0 12px 28px rgba(17,19,23,.12)}
 .media{aspect-ratio:16/9;background:#f3f5f7}
-.media img{width:100%;height:100%;object-fit:cover;background:#f3f5f7}
+.media img{width:100%;height:100%;object-fit:cover}
 .body{padding:12px 14px;display:flex;flex-direction:column;gap:8px}
 .title{font-weight:700}
 .meta{display:flex;align-items:center;justify-content:space-between;color:var(--bfs-muted);font-size:.95rem}
 .meta b{color:#111317}
-
 .cta{display:flex;gap:8px;margin-top:2px}
-.btn{display:inline-flex;align-items:center;justify-content:center;height:36px;padding:0 14px;border-radius:10px;border:1px solid var(--bfs-line);font-weight:700;background:#fff}
+.btn{display:inline-flex;align-items:center;justify-content:center;height:36px;padding:0 14px;border-radius:10px;border:1px solid var(--bfs-line);font-weight:700;background:#fff;cursor:pointer}
 .btn:hover{box-shadow:0 6px 14px rgba(17,19,23,.08)}
 .btn.secondary{background:#111317;color:#fff;border-color:#111317}
 .flag{position:absolute;top:10px;left:10px;background:#111317;color:#fff;border-radius:999px;padding:6px 10px;font-size:.85rem}
 .flag.green{background:#19c37d;color:#052b18}
 
-.card{position:relative}
+/* TABS */
+.tabs{display:flex;flex-wrap:wrap;gap:8px;margin:8px 0 14px}
+.tab{appearance:none;border:1px solid var(--bfs-line);background:#fff;padding:8px 12px;border-radius:999px;font-weight:700;cursor:pointer}
+.tab:hover{box-shadow:0 6px 14px rgba(17,19,23,.08)}
+.tab.is-active{background:#111317;color:#fff;border-color:#111317}
+
+/* HOVER extras */
+.labelbar > span{transition:filter .18s ease}
+.card:hover .labelbar > span{filter:saturate(1.2) brightness(1.03)}
+
 .footer-note{margin-top:24px;color:#6b7480;font-size:.95rem}
 small.mute{color:#6b7480}
 </style>
 </head>
 <body>
-
 <header class="hero">
   <div class="hero-inner">
-    <div class="hero-left">
+    <div>
       <h1 class="logo-title">bigfootsneaks</h1>
       <p class="strap">Super Sneaks Deals • Under €10 / €20 • Hot drops</p>
     </div>
     <div class="hero-right">
-      <!-- upload bfs-mascot.png naast index.html -->
       <img class="mascot" src="./bfs-mascot.png" alt="BFS mascot" onerror="this.style.display='none'"/>
     </div>
   </div>
 </header>
 
 <main class="wrap">
-  <div class="layout">
-    <section>
-      <div class="section-title">
-        <h2>Super Sneaks Deals</h2>
-        <span class="pill"><span class="dot"></span> Now or Never</span>
-      </div>
-      <div id="super" class="grid"></div>
-    </section>
+  <section>
+    <div class="section-title">
+      <h2>Super Sneaks Deals</h2>
+      <span class="pill"><span class="dot"></span> Now or Never</span>
+    </div>
+    <div id="super" class="grid"></div>
+  </section>
 
-    <section>
-      <div class="section-title">
-        <h2>Deals</h2>
-        <span class="pill"><span class="dot"></span> Updated Daily</span>
-      </div>
-      <div id="list" class="grid"></div>
-    </section>
+  <section>
+    <div class="section-title">
+      <h2>Deals</h2>
+      <span class="pill"><span class="dot"></span> Updated Daily</span>
+    </div>
 
+    <!-- TABS -->
+    <div class="tabs" role="tablist" aria-label="Deal filters">
+      <button class="tab is-active" data-filter="all" role="tab" aria-selected="true">All</button>
+      <button class="tab" data-filter="today" role="tab" aria-selected="false">Today</button>
+      <button class="tab" data-filter="u10" role="tab" aria-selected="false">&lt; €10</button>
+      <button class="tab" data-filter="u20" role="tab" aria-selected="false">&lt; €20</button>
+      <button class="tab" data-filter="last" role="tab" aria-selected="false">Last Chance</button>
+      <button class="tab" data-filter="wanted" role="tab" aria-selected="false">Most Wanted</button>
+    </div>
+
+    <div id="list" class="grid" aria-live="polite"></div>
     <p class="footer-note">🦍 Kuch kuch, here we go! <span style="float:right">© <span id="y"></span> <small class="mute">bigfootsneaks</small></span></p>
-  </div>
+  </section>
 </main>
 
 <script>
-// ===== Mini CMS via CSV =====
-// CSV headers: id,title,price,merchant,category,image,url,labels,featured
-// labels: "1|3|6" → de ÉÉRSTE bepaalt de gradientkleur (l1..l6) voor de onderbalk
-const EUR = new Intl.NumberFormat('nl-NL',{style:'currency',currency:'EUR'});
+const EUR=new Intl.NumberFormat('nl-NL',{style:'currency',currency:'EUR'});
+function parseCSV(t){const l=t.split(/\r?\n/).filter(Boolean),h=splitRow(l.shift());return l.map(r=>{const c=splitRow(r),o={};h.forEach((H,i)=>o[H.trim()]=(c[i]||'').trim());return o})}
+function splitRow(r){const o=[];let c='',q=!1;for(let i=0;i<r.length;i++){const h=r[i];if(h==='\"'){if(q&&r[i+1]==='\"'){c+='\"';i++}else q=!q}else if(h===','&&!q){o.push(c);c=''}else c+=h}o.push(c);return o}
+function euro(v){if(!v)return'';const n=Number(v);return isFinite(n)?EUR.format(n):''}
+function el(t,c,x){const e=document.createElement(t);if(c)e.className=c;if(x!=null)e.textContent=x;return e}
 
-function parseCSV(text){
-  const lines = text.split(/\r?\n/).filter(Boolean);
-  const headers = splitRow(lines.shift());
-  return lines.map(line=>{
-    const cells = splitRow(line);
-    const obj={};
-    headers.forEach((h,i)=>obj[h.trim()]=(cells[i]||'').trim());
-    return obj;
-  });
-}
-function splitRow(row){
-  const out=[]; let cur=''; let q=false;
-  for(let i=0;i<row.length;i++){
-    const ch=row[i];
-    if(ch==='\"'){ if(q && row[i+1]==='\"'){cur+='\"'; i++;} else q=!q; }
-    else if(ch===',' && !q){ out.push(cur); cur=''; }
-    else cur+=ch;
-  }
-  out.push(cur);
-  return out;
-}
-function euro(v){ if(!v) return ''; const n=Number(v); return isFinite(n)? EUR.format(n):''; }
-function el(tag,cls,txt){ const e=document.createElement(tag); if(cls) e.className=cls; if(txt!=null) e.textContent=txt; return e; }
-
+let ALL_PRODUCTS=[];
 function render(all){
-  const superWrap = document.getElementById('super');
-  const listWrap  = document.getElementById('list');
-  superWrap.innerHTML = listWrap.innerHTML = '';
+ const superWrap=document.getElementById('super');
+ const listWrap=document.getElementById('list');
+ superWrap.innerHTML=listWrap.innerHTML='';
+ const featured=all.filter(p=>(p.featured||'').toLowerCase()==='true');
+ const normal=all.filter(p=>(p.featured||'').toLowerCase()!=='true');
+ const superItems=featured.slice(0,3);
+ if(superItems.length<3){
+   const need=3-superItems.length;
+   const pref=normal.filter(p=>/(^|\|)(1|2)($|\|)/.test(p.labels||''));
+   const rest=normal.filter(p=>!pref.includes(p));
+   superItems.push(...pref.slice(0,need));
+   if(superItems.length<3)superItems.push(...rest.slice(0,3-superItems.length))
+ }
+ const used=new Set(superItems.map(p=>p.id));
+ const listItems=all.filter(p=>!used.has(p.id));
 
-  const featured = all.filter(p => (p.featured||'').toLowerCase()==='true');
-  const normal   = all.filter(p => (p.featured||'').toLowerCase()!=='true');
+ const draw=(items,container)=>{
+  items.forEach(p=>{
+   const card=el('article','card');
+   const labs=(p.labels||'').split('|').map(s=>s.trim()).filter(Boolean);
+   if((p.featured||'').toLowerCase()==='true'&&container===superWrap)card.appendChild(el('div','flag green','Super Deal'));
+   else if(labs.includes('2'))card.appendChild(el('div','flag','24h Drop'));
+   else if(labs.includes('5'))card.appendChild(el('div','flag','Last Chance'));
 
-  // maak altijd 3 super items; aanvullen met voorkeur label 1/2, anders eerste beste
-  const superItems = featured.slice(0,3);
-  if (superItems.length < 3){
-    const need = 3 - superItems.length;
-    const preferred = normal.filter(p=>/(^|\|)(1|2)($|\|)/.test(p.labels||''));
-    const rest = normal.filter(p=>!preferred.includes(p));
-    superItems.push(...preferred.slice(0,need));
-    if (superItems.length < 3) superItems.push(...rest.slice(0, 3-superItems.length));
-  }
+   const media=el('div','media');media.innerHTML=`<img alt="${p.title}" src="${p.image}" loading="lazy">`;
+   const body=el('div','body');
+   const title=el('div','title',p.title);
+   const meta=el('div','meta');meta.innerHTML=`<span>${p.merchant||''}</span><b>${euro(p.price)}</b>`;
+   const cta=el('div','cta');
+   const shop=el('a','btn','Shop Now');shop.href=p.url||'#';shop.target='_blank';shop.rel='noopener';
+   const pin=el('a','btn secondary','Save Pin');
+   pin.href=`https://www.pinterest.com/pin/create/button/?url=${encodeURIComponent(location.href)}&media=${encodeURIComponent(p.image)}&description=${encodeURIComponent(p.title)}`;
+   pin.target='_blank';pin.rel='noopener';
+   cta.append(shop,pin);
+   body.append(title,meta,cta);
 
-  const used = new Set(superItems.map(p=>p.id));
-  const listItems = all.filter(p=>!used.has(p.id));
+   const mainLab=labs[0];
+   const bar=el('div','labelbar');
+   if(mainLab)bar.appendChild(el('span',`l${mainLab}`));
 
-  const draw = (items, container)=>{
-    items.forEach(p=>{
-      const card = el('article','card');
+   card.append(media,body,bar);
+   container.appendChild(card);
+  });
+ }
+ draw(superItems,superWrap);
+ draw(listItems,listWrap);
+}
 
-      // vlaggen
-      const labs = (p.labels||'').split('|').map(s=>s.trim()).filter(Boolean);
-      if((p.featured||'').toLowerCase()==='true' && container===superWrap){
-        card.appendChild(el('div','flag green','Super Deal'));
-      }else if(labs.includes('2')){
-        card.appendChild(el('div','flag','24h Drop'));
-      }else if(labs.includes('5')){
-        card.appendChild(el('div','flag','Last Chance'));
-      }
+function applyFilter(f){
+ if(!ALL_PRODUCTS.length)return;
+ let items=ALL_PRODUCTS.slice();
+ switch(f){
+  case 'today':items=items.filter(p=>(p.category||'').toLowerCase().includes('today'));break;
+  case 'u10':items=items.filter(p=>Number(p.price)>0&&Number(p.price)<10);break;
+  case 'u20':items=items.filter(p=>Number(p.price)>0&&Number(p.price)<20);break;
+  case 'last':items=items.filter(p=>(p.labels||'').split('|').includes('5'));break;
+  case 'wanted':items=items.filter(p=>(p.labels||'').split('|').includes('1'));break;
+  case 'all':default:break;
+ }
+ render(items);
+}
 
-      // media + body
-      const media = el('div','media');
-      media.innerHTML = `<img alt="${p.title}" src="${p.image}" loading="lazy">`;
-
-      const body = el('div','body');
-      const title = el('div','title',p.title);
-      const meta  = el('div','meta'); 
-      meta.innerHTML = `<span>${p.merchant||''}</span><b>${euro(p.price)}</b>`;
-
-      const cta   = el('div','cta');
-      const shop  = el('a','btn','Shop Now'); shop.href=(p.url||'#'); shop.target='_blank'; shop.rel='noopener';
-      const pin   = el('a','btn secondary','Save Pin');
-      pin.href = `https://www.pinterest.com/pin/create/button/?url=${encodeURIComponent(location.href)}&media=${encodeURIComponent(p.image)}&description=${encodeURIComponent(p.title)}`;
-      pin.target = '_blank'; pin.rel='noopener';
-      cta.append(shop,pin);
-
-      body.append(title,meta,cta);
-
-      // labelbar (kleur op basis van eerste label)
-      const mainLab = labs[0];
-      const barWrap = el('div','labelbar');
-      if (mainLab) barWrap.appendChild(el('span',`l${mainLab}`));
-
-      card.append(media,body,barWrap);
-      container.appendChild(card);
-    });
-  };
-
-  draw(superItems, superWrap);
-  draw(listItems,  listWrap);
+function initTabs(){
+ const tabs=document.querySelectorAll('.tabs .tab');
+ tabs.forEach(b=>{
+  b.addEventListener('click',()=>{
+   tabs.forEach(x=>{x.classList.remove('is-active');x.setAttribute('aria-selected','false')});
+   b.classList.add('is-active');b.setAttribute('aria-selected','true');
+   applyFilter(b.dataset.filter);
+   document.getElementById('list').focus?.();
+  })
+ })
 }
 
 fetch('./products.csv',{cache:'no-store'})
-  .then(r=>{ if(!r.ok) throw new Error('no csv'); return r.text(); })
-  .then(t=>render(parseCSV(t)))
-  .catch(()=>{
-    document.getElementById('super').innerHTML =
-      '<div style="grid-column:1/-1;padding:16px;border:2px dashed #eee;border-radius:12px;background:#fff">Upload <b>products.csv</b> naast <b>index.html</b> om deals te tonen.</div>';
-  });
-
-document.getElementById('y').textContent = new Date().getFullYear();
+ .then(r=>{if(!r.ok)throw new Error('no csv');return r.text()})
+ .then(t=>{ALL_PRODUCTS=parseCSV(t);render(ALL_PRODUCTS);initTabs()})
+ .catch(()=>{document.getElementById('super').innerHTML='<div style="grid-column:1/-1;padding:16px;border:2px dashed #eee;border-radius:12px;background:#fff">Upload <b>products.csv</b> naast <b>index.html</b> om deals te tonen.</div>'});
+document.getElementById('y').textContent=new Date().getFullYear();
 </script>
 </body>
 </html>
