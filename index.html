@@ -1,322 +1,304 @@
 <!doctype html>
 <html lang="nl">
 <head>
-<meta charset="utf-8">
-<meta name="viewport" content="width=device-width,initial-scale=1">
-<title>bigfootsneaks — Clean</title>
-<meta name="description" content="BigFootSneaks • Dagdeals onder €10/€20 en hot drops.">
-<style>
-:root{
-  --bg:#ffffff; --ink:#0f1115; --muted:#6b7280; --line:#e9eef3; --card:#ffffff;
-  --brand:#111317; --accent:#ff7a00; --ok:#19c37d; --danger:#ff3b30;
-  --radius:14px; --w:1080px;
-}
-*{box-sizing:border-box} html,body{margin:0}
-body{font:15.5px/1.55 Inter,system-ui,-apple-system,Segoe UI,Roboto,Arial;color:var(--ink);background:var(--bg)}
-a{text-decoration:none;color:inherit}
-.wrap{max-width:var(--w);margin:0 auto;padding:24px 16px}
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>bigfootsneaks — Clean daily sneaks</title>
+  <meta name="description" content="BigFoot Sneaks — Super Sneaks Deals • Onder €10 / €20 • Hot drops • Clean & snel shoppen." />
+  <meta name="robots" content="index, follow" />
+  <link rel="icon" href="favicon.ico" />
+  <style>
+    :root{
+      --bfs-ink:#111317;       /* tekst donker */
+      --bfs-mid:#2a2f38;       /* subtiel donker */
+      --bfs-soft:#667085;      /* gedimde tekst */
+      --bfs-line:#e6e7eb;      /* borders */
+      --bfs-bg:#ffffff;        /* kaartrag */
+      --bfs-wash:#f7f7f9;      /* pagewash */
+      --bfs-brand:#ff7a00;     /* oranje merk */
+      --bfs-brand-deep:#d86600;
+      --bfs-ok:#16a34a;
+      --bfs-warn:#f59e0b;
+      --max:1180px;
+    }
+    *{box-sizing:border-box}
+    html,body{margin:0;padding:0;background:#fff;color:var(--bfs-ink);font:16px/1.55 ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial}
+    a{color:inherit;text-decoration:none}
+    img{max-width:100%;display:block}
 
-/* Header */
-.header{border-bottom:1px solid var(--line);background:#fff;position:sticky;top:0;z-index:10}
-.header__in{max-width:var(--w);margin:auto;display:flex;align-items:center;justify-content:space-between;gap:12px;padding:16px}
-.logo{font-weight:900;font-size:28px;letter-spacing:.2px}
-.nav{display:flex;gap:10px;flex-wrap:wrap}
-.tag{border:1px solid var(--line);padding:8px 12px;border-radius:999px;font-weight:700}
-.tag--accent{background:var(--accent);border-color:var(--accent);color:#fff}
+    /* Header hero */
+    .hero{
+      background:linear-gradient(0deg,var(--bfs-brand-deep),var(--bfs-brand) 48%,#ffa64a 110%);
+      color:#fff;
+      padding:28px 16px;
+      position:relative;
+      overflow:hidden;
+    }
+    .hero__inner{max-width:var(--max);margin:0 auto;display:grid;grid-template-columns:1fr 320px;gap:18px;align-items:center}
+    @media (max-width:980px){.hero__inner{grid-template-columns:1fr}}
+    .logo{font-weight:900;font-size:38px;letter-spacing:.5px;line-height:1}
+    .logo small{display:block;font-weight:500;opacity:.9;margin-top:6px}
+    .mascot{max-height:220px;margin:0 auto;filter:drop-shadow:0 18px 18px rgba(0,0,0,.08)}
+    @media (max-width:980px){.mascot{max-height:180px}}
 
-/* Hero */
-.hero{background:#fafafa;border-bottom:1px solid var(--line)}
-.hero__in{max-width:var(--w);margin:auto;display:grid;grid-template-columns:1fr 250px;gap:20px;align-items:center;padding:28px 16px}
-@media(max-width:900px){.hero__in{grid-template-columns:1fr}}
-.h1{font-size:36px;font-weight:900;margin:0 0 6px}
-.sub{color:var(--muted)}
-.mascot{max-height:160px;justify-self:end;filter:drop-shadow(0 10px 20px rgba(17,19,23,.12))}
-@media(max-width:900px){.mascot{display:none}}
+    /* Wrapper & headings */
+    .wrap{max-width:var(--max);margin:12px auto;padding:0 16px}
+    h2{font-size:1.35rem;margin:14px 0 10px}
+    .section-head{display:flex;align-items:center;gap:10px;margin:16px 0 8px}
+    .pill{display:inline-flex;align-items:center;gap:6px;background:#101827;color:#fff;font-weight:700;border-radius:999px;padding:6px 12px;font-size:.85rem}
+    .pill--soft{background:#f3f4f6;color:#111317}
 
-/* Section head */
-.section-hd{display:flex;align-items:center;justify-content:space-between;gap:12px;margin:22px 0 10px}
-.section-hd h2{margin:0;font-size:18px;font-weight:900}
-.filters{display:flex;gap:8px;flex-wrap:wrap}
-.filter{border:1px solid var(--line);background:#fff;padding:7px 12px;border-radius:999px;font-weight:800;cursor:pointer}
-.filter.is-act{background:#111;color:#fff;border-color:#111}
+    /* Filter chips */
+    .chips{display:flex;flex-wrap:wrap;gap:8px;margin:10px 0 18px}
+    .chip{border:1px solid var(--bfs-line);background:#fff;border-radius:999px;padding:8px 14px;font-weight:700}
+    .chip.is-on{background:#101827;color:#fff;border-color:#101827}
 
-/* Grid & cards */
-.grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:16px}
-@media(max-width:980px){.grid{grid-template-columns:repeat(2,minmax(0,1fr))}}
-@media(max-width:620px){.grid{grid-template-columns:1fr}}
-.card{background:var(--card);border:1px solid var(--line);border-radius:var(--radius);overflow:hidden;display:flex;flex-direction:column;box-shadow:0 8px 22px rgba(16,18,27,.06);transition:transform .16s,box-shadow .16s}
-.card:hover{transform:translateY(-4px);box-shadow:0 16px 36px rgba(16,18,27,.12)}
-.media{aspect-ratio:16/9;background:#f3f5f7}
-.media img{width:100%;height:100%;object-fit:cover}
-.body{padding:12px 14px;display:flex;flex-direction:column;gap:8px}
-.ttl{font-weight:900}
-.meta{display:flex;justify-content:space-between;color:var(--muted)}
-.price{font-weight:900}
-.row{display:flex;gap:8px;margin-top:4px}
-.btn{flex:1 0 auto;display:inline-flex;align-items:center;justify-content:center;height:38px;padding:0 12px;border-radius:10px;border:1px solid var(--line);background:#fff;font-weight:800}
-.btn--go{background:var(--accent);border-color:var(--accent);color:#fff}
-.badge{position:absolute;top:12px;left:12px;background:#111;color:#fff;padding:6px 10px;border-radius:999px;font-weight:900;font-size:.85rem}
-.ok{background:var(--ok)} .danger{background:var(--danger)}
+    /* Grids */
+    .grid{display:grid;gap:18px}
+    .grid--3{grid-template-columns:repeat(3,minmax(0,1fr))}
+    @media (max-width:980px){.grid--3{grid-template-columns:repeat(2,minmax(0,1fr))}}
+    @media (max-width:640px){.grid--3{grid-template-columns:1fr}}
 
-/* Labelbar */
-.lbl{height:8px;display:flex}
-.lbl span{flex:1}
-.l1{background:linear-gradient(90deg,#121214,#3c3f46)}
-.l2{background:linear-gradient(90deg,#2b56ff,#7aa2ff)}
-.l3{background:linear-gradient(90deg,#0acf5a,#89f7b2)}
-.l4{background:linear-gradient(90deg,#ff3b30,#ff7b73)}
-.l5{background:linear-gradient(90deg,#9c27ff,#cf9bff)}
-.l6{background:linear-gradient(90deg,#ffb300,#ffd36b)}
+    /* Card */
+    .card{background:var(--bfs-bg);border:1px solid var(--bfs-line);border-radius:14px;overflow:hidden;display:flex;flex-direction:column}
+    .media{aspect-ratio:16/10;background:#f3f5f7;position:relative}
+    .badges{position:absolute;left:10px;top:10px;display:flex;gap:6px}
+    .label{display:inline-block;min-width:10px;height:10px;border-radius:999px;box-shadow:0 0 0 2px rgba(255,255,255,.9) inset}
+    .l1{background:linear-gradient(90deg,#121214 0%,#3c3f46 100%)}   /* Most Wanted */
+    .l2{background:linear-gradient(90deg,#2b56ff 0%,#7aa2ff 100%)}   /* Under €10 */
+    .l3{background:linear-gradient(90deg,#0acf5a 0%,#89f7b2 100%)}   /* Under €20 */
+    .l4{background:linear-gradient(90deg,#ff3b30 0%,#ff7b73 100%)}   /* Last Chance */
+    .l5{background:linear-gradient(90deg,#9c27ff 0%,#cf9bff 100%)}   /* Today */
+    .l6{background:linear-gradient(90deg,#ffb300 0%,#ffd36b 100%)}   /* Hot */
+    .body{padding:12px 14px;display:flex;flex-direction:column;gap:8px}
+    .title{font-weight:800}
+    .meta{color:#6b7280;font-weight:600;font-size:.9rem}
+    .price{font-weight:900}
+    .row{display:flex;align-items:center;justify-content:space-between;gap:10px}
+    .btn{display:inline-flex;align-items:center;justify-content:center;height:40px;padding:0 14px;border-radius:10px;font-weight:800;border:1px solid var(--bfs-line);background:#fff}
+    .btn--go{background:var(--bfs-ink);color:#fff;border-color:var(--bfs-ink)}
+    .footrow{display:flex;align-items:center;gap:8px;color:#6b7280;font-weight:700;margin:26px 0}
+    .small{font-size:.92rem}
+    .muted{color:#6b7280}
 
-/* Footer */
-.ft{border-top:1px solid var(--line);padding:18px 16px;color:var(--muted)}
-</style>
+    footer{border-top:1px solid var(--bfs-line);margin-top:42px}
+    .foot{max-width:var(--max);margin:0 auto;padding:16px 16px;display:flex;align-items:center;justify-content:space-between;color:#6b7280;font-weight:700}
+  </style>
 </head>
 <body>
 
-<header class="header">
-  <div class="header__in">
-    <div class="logo">bigfootsneaks</div>
-    <nav class="nav">
-      <span class="tag tag--accent">Today</span>
-      <span class="tag">Under €10</span>
-      <span class="tag">Under €20</span>
-      <span class="tag">Last Chance</span>
-      <span class="tag">Most Wanted</span>
-    </nav>
-  </div>
-</header>
-
-<section class="hero">
-  <div class="hero__in">
-    <div>
-      <h1 class="h1">Clean daily sneaks.</h1>
-      <p class="sub">Super Sneaks • onder €10/€20 • hot drops — simpel en snel.</p>
-    </div>
-    <img class="mascot" src="./bfs-mascot.png" alt="BFS" onerror="this.style.display='none'">
-  </div>
-</section>
-
-<main class="wrap">
-  <div class="section-hd">
-    <h2>Super Sneaks</h2>
-    <div class="filters" role="tablist" aria-label="Filters">
-      <button class="filter is-act" data-f="all" aria-selected="true">Alles</button>
-      <button class="filter" data-f="today">Today</button>
-      <button class="filter" data-f="u10">&lt; €10</button>
-      <button class="filter" data-f="u20">&lt; €20</button>
-      <button class="filter" data-f="last">Last Chance</button>
-      <button class="filter" data-f="wanted">Most Wanted</button>
-    </div>
-  </div>
-
-  <section id="super" class="grid" aria-live="polite"></section>
-
-  <div class="section-hd" style="margin-top:20px">
-    <h2>Alle deals</h2>
-  </div>
-  <section id="list" class="grid" aria-live="polite"></section>
-</main>
-
-<footer class="ft wrap">
-  🦍 Kuch kuch, here we go! <span style="float:right">© <span id="y"></span> bigfootsneaks</span>
-</footer>
-
-<script>
-/* Data (pas aan of vul later vanuit CSV): */
-const data = [
-  // === Super Sneaks (3 featured) ===
-  {
-    id: "ugreen100w-nl-1",
-    title: "UGREEN USB-C Cable 100W PD 3.0 (1m)",
-    price: 7.99,
-    merchant: "Amazon NL",
-    category: "Under €20",
-    image: "https://images.unsplash.com/photo-1585445490387-1f4d1f3a1dba?q=80&w=1200&auto=format&fit=crop",
-    url: "https://amzn.to/42ZuFDV",
-    labels: "1|3",
-    featured: true
-  },
-  {
-    id: "ugreen100w-nl-2",
-    title: "UGREEN USB-C Cable 100W PD 3.0 (1m)",
-    price: 7.99,
-    merchant: "Amazon NL",
-    category: "Under €20",
-    image: "https://images.unsplash.com/photo-1585445490387-1f4d1f3a1dba?q=80&w=1200&auto=format&fit=crop",
-    url: "https://amzn.to/42ZuFDV",
-    labels: "2|4",
-    featured: true
-  },
-  {
-    id: "nike-50-nl-1",
-    title: "Nike Sneakers — 50% Off Today (NL)",
-    price: null,
-    merchant: "Nike via Sovrn",
-    category: "Today",
-    image: "https://images.unsplash.com/photo-1542291026-7eec264c27ff?q=80&w=1200&auto=format&fit=crop",
-    url: "https://sovrn.co/4zaqqw5",
-    labels: "5|6",
-    featured: true
-  },
-
-  // === Normale deals (3 x 3 grid) ===
-  {
-    id: "mrsiga-1",
-    title: "MR.SIGA Microfiber Cloths (12-pack)",
-    price: 16.99,
-    merchant: "Amazon DE",
-    category: "Under €20",
-    image: "https://images.unsplash.com/photo-1581578731548-c64695cc6952?q=80&w=1200&auto=format&fit=crop",
-    url: "#",
-    labels: "1|4",
-    featured: false
-  },
-  {
-    id: "pet-bowls-1",
-    title: "Dog Food & Water Bowl Set (Non-Slip)",
-    price: 13.91,
-    merchant: "Amazon DE",
-    category: "Under €20",
-    image: "https://images.unsplash.com/photo-1546443046-ed1ce6ffd1ed?q=80&w=1200&auto=format&fit=crop",
-    url: "#",
-    labels: "2|3",
-    featured: false
-  },
-  {
-    id: "anker-cc-100w-1",
-    title: "Anker USB-C to USB-C (100W, 2-pack)",
-    price: 8.49,
-    merchant: "Amazon DE",
-    category: "Under €10",
-    image: "https://images.unsplash.com/photo-1609592424700-1b9e16f3f7a3?q=80&w=1200&auto=format&fit=crop",
-    url: "https://amzn.to/4pT6ukv",
-    labels: "3|6",
-    featured: false
-  },
-  {
-    id: "nike-50-nl-2",
-    title: "Nike Sneakers — 50% Off Today (NL)",
-    price: null,
-    merchant: "Nike via Sovrn",
-    category: "Today",
-    image: "https://images.unsplash.com/photo-1542291026-7eec264c27ff?q=80&w=1200&auto=format&fit=crop",
-    url: "https://sovrn.co/4zaqqw5",
-    labels: "5",
-    featured: false
-  },
-  {
-    id: "ugreen100w-nl-3",
-    title: "UGREEN USB-C Cable 100W PD 3.0 (1m)",
-    price: 7.99,
-    merchant: "Amazon NL",
-    category: "Under €20",
-    image: "https://images.unsplash.com/photo-1585445490387-1f4d1f3a1dba?q=80&w=1200&auto=format&fit=crop",
-    url: "https://amzn.to/42ZuFDV",
-    labels: "4|6",
-    featured: false
-  },
-  {
-    id: "mrsiga-2",
-    title: "MR.SIGA Microfiber Cloths (12-pack)",
-    price: 16.99,
-    merchant: "Amazon DE",
-    category: "Under €20",
-    image: "https://images.unsplash.com/photo-1581578731548-c64695cc6952?q=80&w=1200&auto=format&fit=crop",
-    url: "#",
-    labels: "2",
-    featured: false
-  },
-  {
-    id: "pet-bowls-2",
-    title: "Dog Food & Water Bowl Set (Non-Slip)",
-    price: 13.91,
-    merchant: "Amazon DE",
-    category: "Under €20",
-    image: "https://images.unsplash.com/photo-1546443046-ed1ce6ffd1ed?q=80&w=1200&auto=format&fit=crop",
-    url: "#",
-    labels: "3",
-    featured: false
-  },
-  {
-    id: "anker-cc-100w-2",
-    title: "Anker USB-C to USB-C (100W, 2-pack)",
-    price: 8.49,
-    merchant: "Amazon DE",
-    category: "Under €10",
-    image: "https://images.unsplash.com/photo-1609592424700-1b9e16f3f7a3?q=80&w=1200&auto=format&fit=crop",
-    url: "https://amzn.to/4pT6ukv",
-    labels: "1|5",
-    featured: false
-  }
-];
-
-
-/* Helpers */
-const fmt = new Intl.NumberFormat('nl-NL',{style:'currency',currency:'EUR'});
-const € = v => v==null ? "" : fmt.format(+v);
-const el = q => document.querySelector(q);
-
-/* Card factory */
-function card(p){
-  const labs=(p.labels||"").split("|").filter(Boolean).map(l=>`<span class="l${l}"></span>`).join("");
-  return `
-  <article class="card">
-    <div class="media" style="position:relative">
-      ${p.featured?`<span class="badge ok">SUPER</span>`:""}
-      <img src="${p.image}" alt="${p.title}" loading="lazy">
-    </div>
-    <div class="body">
-      <div class="ttl">${p.title}</div>
-      <div class="meta"><span>${p.merchant||""}</span><span class="price">${€(p.price)}</span></div>
-      <div class="row">
-        <a class="btn btn--go" target="_blank" rel="noopener" href="${p.url||'#'}">Shop Now</a>
-        <a class="btn" target="_blank" rel="noopener"
-           href="https://www.pinterest.com/pin/create/button/?url=${encodeURIComponent(location.href)}&media=${encodeURIComponent(p.image)}&description=${encodeURIComponent(p.title)}">Save Pin</a>
+  <!-- HERO -->
+  <header class="hero">
+    <div class="hero__inner">
+      <div>
+        <div class="logo">bigfootsneaks
+          <small>Clean daily sneaks — onder €10/€20 — hot drops.</small>
+        </div>
       </div>
+      <img class="mascot" src="./bfs-mascot.png" alt="BFS mascot" onerror="this.style.display='none'">
     </div>
-    <div class="lbl">${labs}</div>
-  </article>`;
-}
+  </header>
 
-/* Render */
-function renderSuper(items){
-  const picks = [];
-  const f = items.filter(x=>x.featured).slice(0,3);
-  picks.push(...f);
-  const need = 3 - f.length;
-  if(need>0){
-    const extras = items.filter(x=>/(^|\|)(1|2)($|\|)/.test(x.labels||"") && !picks.includes(x)).slice(0,need);
-    picks.push(...extras);
+  <main class="wrap">
+
+    <!-- SUPER SNEAKS -->
+    <div class="section-head">
+      <h2 class="pill">Super Sneaks</h2>
+      <span class="pill pill--soft">🔥 Now or Never</span>
+    </div>
+    <div id="featured" class="grid grid--3"></div>
+
+    <!-- FILTERS -->
+    <div class="section-head" style="margin-top:22px">
+      <h2>Alle deals</h2>
+    </div>
+    <div class="chips" id="filters">
+      <button class="chip is-on" data-k="all">All</button>
+      <button class="chip" data-k="today">Today</button>
+      <button class="chip" data-k="lt10">&lt; €10</button>
+      <button class="chip" data-k="lt20">&lt; €20</button>
+      <button class="chip" data-k="last">Last Chance</button>
+      <button class="chip" data-k="most">Most Wanted</button>
+    </div>
+
+    <!-- GRID -->
+    <div id="grid" class="grid grid--3"></div>
+
+    <div class="footrow">
+      <span>🦍</span><span>Kuch kuch, here we go!</span>
+    </div>
+  </main>
+
+  <footer>
+    <div class="foot">
+      <span>© <span id="yr"></span> bigfootsneaks</span>
+      <span class="muted">Follow for laughs & steals</span>
+    </div>
+  </footer>
+
+  <script>
+  /* ==== DATA (kan later naar CSV, nu kant-en-klaar) ==== */
+  const data = [
+    /* === Super Sneaks (3) === */
+    {
+      id:"ugreen100w-nl-1",
+      title:"UGREEN USB-C Cable 100W PD 3.0 (1m)",
+      price:7.99, merchant:"Amazon NL", category:"Under €20",
+      image:"https://images.unsplash.com/photo-1585445490387-1f4d1f3a1dba?q=80&w=1200&auto=format&fit=crop",
+      url:"https://amzn.to/42ZuFDV", labels:"1|3|5", featured:true
+    },
+    {
+      id:"ugreen100w-nl-2",
+      title:"UGREEN USB-C Cable 100W PD 3.0 (1m)",
+      price:7.99, merchant:"Amazon NL", category:"Under €20",
+      image:"https://images.unsplash.com/photo-1585445490387-1f4d1f3a1dba?q=80&w=1200&auto=format&fit=crop",
+      url:"https://amzn.to/42ZuFDV", labels:"2|4", featured:true
+    },
+    {
+      id:"nike-50-nl-1",
+      title:"Nike Sneakers — 50% Off Today (NL)",
+      price:null, merchant:"Nike via Sovrn", category:"Today",
+      image:"https://images.unsplash.com/photo-1542291026-7eec264c27ff?q=80&w=1200&auto=format&fit=crop",
+      url:"https://sovrn.co/4zaqqw5", labels:"5|6", featured:true
+    },
+
+    /* === Normale deals (9; 3×3 grid) === */
+    {
+      id:"mrsiga-1",
+      title:"MR.SIGA Microfiber Cloths (12-pack)",
+      price:16.99, merchant:"Amazon DE", category:"Under €20",
+      image:"https://images.unsplash.com/photo-1581578731548-c64695cc6952?q=80&w=1200&auto=format&fit=crop",
+      url:"#", labels:"1|4", featured:false
+    },
+    {
+      id:"pet-bowls",
+      title:"Dog Food & Water Bowl Set",
+      price:13.91, merchant:"Amazon DE", category:"Under €20",
+      image:"https://images.unsplash.com/photo-1546443046-ed1ce6ffd1ed?q=80&w=1200&auto=format&fit=crop",
+      url:"#", labels:"3", featured:false
+    },
+    {
+      id:"anker-cc-100w",
+      title:"Anker USB-C to USB-C (100W, 2-pack)",
+      price:8.49, merchant:"Amazon DE", category:"Under €10",
+      image:"https://images.unsplash.com/photo-1609592424700-1b9e16f3f7a3?q=80&w=1200&auto=format&fit=crop",
+      url:"https://amzn.to/4pT6ukv", labels:"2|5", featured:false
+    },
+    {
+      id:"ugreen100w-nl-3",
+      title:"UGREEN USB-C Cable 100W PD 3.0 (1m)",
+      price:7.99, merchant:"Amazon NL", category:"Under €10",
+      image:"https://images.unsplash.com/photo-1585445490387-1f4d1f3a1dba?q=80&w=1200&auto=format&fit=crop",
+      url:"https://amzn.to/42ZuFDV", labels:"2|6", featured:false
+    },
+    {
+      id:"anker-cc-100w-dup1",
+      title:"Anker USB-C to USB-C (100W, 2-pack)",
+      price:8.49, merchant:"Amazon DE", category:"Under €10",
+      image:"https://images.unsplash.com/photo-1609592424700-1b9e16f3f7a3?q=80&w=1200&auto=format&fit=crop",
+      url:"https://amzn.to/4pT6ukv", labels:"2", featured:false
+    },
+    {
+      id:"mrsiga-2",
+      title:"MR.SIGA Microfiber Cloths (12-pack)",
+      price:16.99, merchant:"Amazon DE", category:"Under €20",
+      image:"https://images.unsplash.com/photo-1581578731548-c64695cc6952?q=80&w=1200&auto=format&fit=crop",
+      url:"#", labels:"4", featured:false
+    },
+    {
+      id:"nike-50-nl-dup",
+      title:"Nike Sneakers — 50% Off Today (NL)",
+      price:null, merchant:"Nike via Sovrn", category:"Today",
+      image:"https://images.unsplash.com/photo-1542291026-7eec264c27ff?q=80&w=1200&auto=format&fit=crop",
+      url:"https://sovrn.co/4zaqqw5", labels:"5|1", featured:false
+    },
+    {
+      id:"ugreen100w-nl-4",
+      title:"UGREEN USB-C Cable 100W PD 3.0 (1m)",
+      price:7.99, merchant:"Amazon NL", category:"Under €10",
+      image:"https://images.unsplash.com/photo-1585445490387-1f4d1f3a1dba?q=80&w=1200&auto=format&fit=crop",
+      url:"https://amzn.to/42ZuFDV", labels:"2", featured:false
+    },
+    {
+      id:"anker-cc-100w-dup2",
+      title:"Anker USB-C to USB-C (100W, 2-pack)",
+      price:8.49, merchant:"Amazon DE", category:"Under €10",
+      image:"https://images.unsplash.com/photo-1609592424700-1b9e16f3f7a3?q=80&w=1200&auto=format&fit=crop",
+      url:"https://amzn.to/4pT6ukv", labels:"2|3", featured:false
+    }
+  ];
+
+  /* ==== HELPERS ==== */
+  const fmt = new Intl.NumberFormat('nl-NL',{style:'currency',currency:'EUR'});
+  const € = v => v==null ? "" : fmt.format(+v);
+  const el = q => document.querySelector(q);
+
+  function labelBadges(p){
+    const labs = (p.labels||"").split("|").filter(Boolean);
+    return labs.map(l=>`<span class="label l${l}" title="label ${l}"></span>`).join("");
   }
-  el("#super").innerHTML = picks.map(card).join("");
-}
-function renderList(items){ el("#list").innerHTML = items.map(card).join(""); }
 
-function applyFilter(key){
-  let it = data.slice();
-  if(key==="today") it = it.filter(p=>/today/i.test(p.category||""));
-  if(key==="u10")   it = it.filter(p=>+p.price>0 && +p.price<10);
-  if(key==="u20")   it = it.filter(p=>+p.price>0 && +p.price<20);
-  if(key==="last")  it = it.filter(p=>(p.labels||"").split("|").includes("5"));
-  if(key==="wanted")it = it.filter(p=>(p.labels||"").split("|").includes("1"));
-  renderSuper(it);
-  renderList(it);
-}
+  function card(p){
+    return `
+      <article class="card">
+        <div class="media">
+          <img src="${p.image}" alt="${p.title}">
+          <div class="badges">${labelBadges(p)}</div>
+        </div>
+        <div class="body">
+          <div class="title">${p.title}</div>
+          <div class="row small">
+            <span class="meta">${p.merchant} • ${p.category||""}</span>
+            <span class="price">${p.price==null ? "View" : €(p.price)}</span>
+          </div>
+          <div class="row">
+            <a class="btn" href="${p.url}" target="_blank" rel="noopener">Save</a>
+            <a class="btn btn--go" href="${p.url}" target="_blank" rel="noopener">Shop now</a>
+          </div>
+        </div>
+      </article>
+    `;
+  }
 
-function initFilters(){
-  const btns=[...document.querySelectorAll(".filter")];
-  btns.forEach(b=>b.addEventListener("click",()=>{
-    btns.forEach(x=>{x.classList.remove("is-act");x.setAttribute("aria-selected","false")});
-    b.classList.add("is-act"); b.setAttribute("aria-selected","true");
-    applyFilter(b.dataset.f);
-  }));
-}
+  /* ==== RENDER ==== */
+  function renderFeatured(){
+    const tgt = el("#featured");
+    const items = data.filter(d=>d.featured).slice(0,3);
+    tgt.innerHTML = items.map(card).join("");
+  }
 
-renderSuper(data);
-renderList(data);
-initFilters();
-el("#y").textContent = new Date().getFullYear();
-</script>
+  function matchesFilter(item, key){
+    if(key==="all") return true;
+    if(key==="today") return (item.category||"").toLowerCase().includes("today") || (item.labels||"").split("|").includes("5");
+    if(key==="lt10")  return item.price!=null && +item.price < 10;
+    if(key==="lt20")  return item.price!=null && +item.price < 20;
+    if(key==="last")  return (item.labels||"").split("|").includes("4");
+    if(key==="most")  return (item.labels||"").split("|").includes("1");
+    return true;
+  }
+
+  function renderGrid(key="all"){
+    const tgt = el("#grid");
+    const items = data.filter(d=>!d.featured).filter(d=>matchesFilter(d,key)).slice(0,9);
+    tgt.innerHTML = items.map(card).join("");
+  }
+
+  function setupFilters(){
+    const bar = el("#filters");
+    bar.addEventListener("click", (e)=>{
+      const b = e.target.closest("button[data-k]");
+      if(!b) return;
+      bar.querySelectorAll(".chip").forEach(c=>c.classList.remove("is-on"));
+      b.classList.add("is-on");
+      renderGrid(b.dataset.k);
+    });
+  }
+
+  // boot
+  document.getElementById("yr").textContent = new Date().getFullYear();
+  renderFeatured();
+  renderGrid("all");
+  setupFilters();
+  </script>
 </body>
 </html>
