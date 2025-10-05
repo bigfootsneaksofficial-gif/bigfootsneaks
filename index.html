@@ -1,175 +1,156 @@
 <!doctype html>
 <html lang="en">
 <head>
-  <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>bigfootsneaks — Super Sneaks Deals</title>
-  <meta name="description" content="BigFootSneaks • Super Sneaks Deals • Under €10 / €20 • Hot drops & daily steals." />
-  <meta name="robots" content="index, follow" />
-  <link rel="icon" href="/favicon.ico" />
-  <style>
-    :root{
-      --bfs-orange:#f28a00;     /* brand orange */
-      --bfs-orange-deep:#d17600;/* shadow/orange */
-      --bfs-ink:#111317;        /* dark text */
-      --bfs-card:#ffffff;       /* card bg */
-      --bfs-muted:#6b7480;      /* dim text */
-      --bfs-line:#e7e7ec;       /* borders */
-      --bfs-green:#19c37d;      /* accent green */
-      --bfs-red:#ff3b30;        /* urgent */
-      --bfs-yellow:#ffd400;     /* label alt */
-      --maxw:1200px;
-    }
-    *{box-sizing:border-box}
-    html,body{margin:0;padding:0;font:16px/1.5 system-ui,-apple-system,Segoe UI,Roboto,Ubuntu,"Helvetica Neue",Arial;background:#fafafa;color:var(--bfs-ink)}
-    a{color:inherit;text-decoration:none}
-    img{max-width:100%;display:block}
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>bigfootsneaks — Super Sneaks Deals • Under €10 / €20 • Hot drops.</title>
+<meta name="description" content="BigFootSneaks • Super Sneaks Deals • Under €10 / €20 • Hot drops & daily steals." />
+<meta name="robots" content="index, follow" />
+<link rel="icon" href="./favicon.ico" />
+<style>
+:root{
+  --bfs-orange:#f7a808;           /* brand orange */
+  --bfs-orange-deep:#f17600;      /* shadow/orange */
+  --ink:#111317;                  /* dark text */
+  --bfs-card:#ffffff;             /* card bg */
+  --bfs-muted:#6b7480;            /* dim text */
+  --bfs-line:#e7ecf2;             /* borders */
+  --bfs-green:#19c37d;            /* accent green */
+  --bfs-red:#ff3b30;              /* urgent */
+  --bfs-yellow:#ffd400;           /* label alt */
+  --maxw:1200px;
+}
 
-    /* Header (orange hero) */
-    .hero{background:linear-gradient(0deg,var(--bfs-orange-deep),var(--bfs-orange));color:#fff}
-    .hero-inner{max-width:var(--maxw);margin:0 auto;padding:28px 16px 18px;display:grid;grid-template-columns:1fr 360px;gap:24px;align-items:end}
-    @media(max-width:980px){.hero-inner{grid-template-columns:1fr}}
+*{box-sizing:border-box}
+html,body{margin:0;padding:0;font:16px/1.5 system-ui,-apple-system,Segoe UI,Roboto,Ubuntu,"Helvetica Neue",Arial;color:#222;background:#fafafa}
+a{color:inherit;text-decoration:none}
+img{max-width:100%;display:block}
 
-    .logo-title{font-weight:900;font-size:56px;letter-spacing:.5px;line-height:1;position:relative;margin:0 0 8px}
-    .logo-title::after{content:"bigfootsneaks";position:absolute;left:4px;top:4px;color:rgba(255,255,255,.35);filter:blur(2px);z-index:0}
-    .logo-title span{position:relative;z-index:1}
-    .strap{margin:0;color:rgba(255,255,255,.9)}
+/* Header (orange hero) */
+.hero{background:linear-gradient(0deg,var(--bfs-orange-deep),var(--bfs-orange));color:#fff}
+.hero-inner{max-width:var(--maxw);margin:0 auto;padding:28px 16px 18px 16px;display:grid;grid-template-columns:1fr 360px;gap:24px;align-items:center}
+@media(max-width:980px){.hero-inner{grid-template-columns:1fr}}
 
-    .hero-left{padding-right:8px}
-    .hero-right{display:flex;justify-content:center;align-items:flex-end}
-    .mascot{max-height:280px;filter:drop-shadow(0 10px 18px rgba(17,19,23,.25))}
-    @media(max-width:980px){.mascot{max-height:220px;margin:4px auto 0}}
+.logo-title{font-weight:900;font-size:56px;letter-spacing:.5px;line-height:1;position:relative;margin:0 0 8px}
+.logo-title::after{content:"bigfootsneaks";position:absolute;left:4px;top:4px;color:rgba(255,255,255,.35);filter:blur(2px);z-index:0}
+.strap{margin:0;color:rgba(255,255,255,.9)}
 
-    /* Page shell */
-    .wrap{max-width:var(--maxw);margin:0 auto;padding:18px 16px}
-    .section-title{display:flex;align-items:center;gap:10px;margin:10px 0 8px}
-    .section-title h2{margin:0;font-size:1.25rem}
-    .pill{display:inline-flex;align-items:center;gap:6px;padding:6px 10px;border-radius:999px;background:#111317;color:#fff;font-weight:700}
+.hero-left{padding-right:8px}
+.hero-right{display:flex;justify-content:center;align-items:flex-end}
+.mascot{max-height:220px;filter:drop-shadow(0 10px 18px rgba(17,19,23,.25))}
+@media(max-width:980px){.mascot{max-height:200px;margin:4px auto 0}}
 
-    /* Layout: main grid with aside mascot sticky on desktop */
-    .layout{display:grid;grid-template-columns:1fr 320px;gap:24px}
-    @media(max-width:1100px){.layout{grid-template-columns:1fr}}
+.wrap{max-width:var(--maxw);margin:0 auto;padding:18px 16px}
+.section-title{display:flex;align-items:center;gap:10px;margin:10px 0 8px}
+.section-title h2{margin:0;font-size:1.25rem}
+.pill{display:inline-flex;align-items:center;gap:6px;padding:6px 10px;border-radius:999px;background:#111317;color:#fff;font-weight:700}
+.pill .dot{width:8px;height:8px;border-radius:50%;display:inline-block;background:linear-gradient(0deg,#ff9922,#ff5a1f)}
 
-    .sticky{position:sticky;top:16px}
+/* Layout */
+.layout{display:grid;grid-template-columns:1fr;gap:24px}
+
 /* ===== Label bar (kleurverloop) ===== */
 .labelbar{height:10px;border-radius:0 0 14px 14px; overflow:hidden}
 .labelbar > span{display:block;height:100%}
-
-/* Gradients per label */
 .labelbar .l1{background:linear-gradient(90deg,#121214 0%,#3c3f46 100%)}           /* zwart/antraciet */
 .labelbar .l2{background:linear-gradient(90deg,#2b56ff 0%,#7aa2ff 100%)}           /* blauw */
 .labelbar .l3{background:linear-gradient(90deg,#0acf5a 0%,#89f7b2 100%)}           /* groen */
 .labelbar .l4{background:linear-gradient(90deg,#ff3b30 0%,#ff7b73 100%)}           /* rood */
 .labelbar .l5{background:linear-gradient(90deg,#9c27ff 0%,#cf9bff 100%)}           /* paars */
 .labelbar .l6{background:linear-gradient(90deg,#ffb300 0%,#ffd36b 100%)}           /* oranje/geel */
-
-/* subtiele lijn boven de balk */
 .card .labelbar{box-shadow: inset 0 1px 0 rgba(17,19,23,.06)}
 
-    /* Cards */
-    .grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:16px}
-    @media(max-width:980px){.grid{grid-template-columns:repeat(2,minmax(0,1fr))}}
-    @media(max-width:640px){.grid{grid-template-columns:1fr}}
+/* Grids */
+.grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:16px}
+@media(max-width:980px){.grid{grid-template-columns:repeat(2,minmax(0,1fr))}}
+@media(max-width:640px){.grid{grid-template-columns:1fr}}
 
-    .card{background:var(--bfs-card);border:1px solid var(--bfs-line);border-radius:14px;overflow:hidden;display:flex;flex-direction:column}
-    .media{aspect-ratio:16/9;background:#f3f5f7}
-    .body{padding:12px 14px;display:flex;flex-direction:column;gap:8px}
-    .title{font-weight:800;font-size:1rem}
-    .meta{display:flex;justify-content:space-between;align-items:center;color:var(--bfs-muted);font-size:.9rem}
-    .labels{display:flex;flex-wrap:wrap;gap:6px}
-    .label{font-size:.72rem;font-weight:700;padding:4px 8px;border-radius:999px;background:#eee;border:1px solid var(--bfs-line)}
-    .l1{background:#ffe9cc;border-color:#ffd9a1}
-    .l2{background:#ffe3e1;border-color:#ffc0bc}
-    .l3{background:#e5ffef;border-color:#b5f2cf}
-    .l4{background:#e9edff;border-color:#c3ceff}
-    .l5{background:#fff6c4;border-color:#ffe585}
-    .l6{background:#f1f1f1;border-color:#dedede}
+/* Kaarten */
+.card{background:var(--bfs-card);border:1px solid var(--bfs-line);border-radius:14px;overflow:hidden;display:flex;flex-direction:column;box-shadow:0 6px 18px rgba(17,19,23,.06)}
+.media{aspect-ratio:16/9;background:#f3f5f7}
+.media img{width:100%;height:100%;object-fit:cover;background:#f3f5f7}
+.body{padding:12px 14px;display:flex;flex-direction:column;gap:8px}
+.title{font-weight:700}
+.meta{display:flex;align-items:center;justify-content:space-between;color:var(--bfs-muted);font-size:.95rem}
+.meta b{color:#111317}
 
-    .cta{display:flex;gap:8px;margin-top:auto}
-    .btn{flex:1;text-align:center;padding:10px 12px;border-radius:10px;border:1px solid var(--bfs-line);background:#111317;color:#fff;font-weight:800}
-    .btn.secondary{background:#fff;color:#111317}
-    .flag{position:absolute;top:10px;left:10px;background:var(--bfs-red);color:#fff;font-weight:900;border-radius:999px;padding:4px 10px;font-size:.75rem;box-shadow:0 6px 14px rgba(0,0,0,.18)}
-    .flag.green{background:var(--bfs-green);color:#062e1e}
+.cta{display:flex;gap:8px;margin-top:2px}
+.btn{display:inline-flex;align-items:center;justify-content:center;height:36px;padding:0 14px;border-radius:10px;border:1px solid var(--bfs-line);font-weight:700;background:#fff}
+.btn:hover{box-shadow:0 6px 14px rgba(17,19,23,.08)}
+.btn.secondary{background:#111317;color:#fff;border-color:#111317}
+.flag{position:absolute;top:10px;left:10px;background:#111317;color:#fff;border-radius:999px;padding:6px 10px;font-size:.85rem}
+.flag.green{background:#19c37d;color:#052b18}
 
-    /* Footer */
-    footer{margin:28px 0;color:#6b7480;font-size:.9rem;border-top:1px solid var(--bfs-line);padding-top:12px;display:flex;justify-content:space-between;gap:12px;flex-wrap:wrap}
-  </style>
+.card{position:relative}
+.footer-note{margin-top:24px;color:#6b7480;font-size:.95rem}
+small.mute{color:#6b7480}
+</style>
 </head>
 <body>
-  <!-- HERO -->
-  <section class="hero">
-    <div class="hero-inner">
-      <div class="hero-left">
-        <h1 class="logo-title"><span>bigfootsneaks</span></h1>
-        <p class="strap">Super Sneaks Deals • Under €10 / €20 • Hot drops</p>
-      </div>
-      <div class="hero-right">
-        <!-- Upload bfs-mascot.png naast index.html -->
-        
-      </div>
-    </div>
-  </section>
 
-  <div class="wrap layout">
-    <!-- MAIN CONTENT -->
-    <main>
-      <!-- SUPER DEALS (featured=true) -->
+<header class="hero">
+  <div class="hero-inner">
+    <div class="hero-left">
+      <h1 class="logo-title">bigfootsneaks</h1>
+      <p class="strap">Super Sneaks Deals • Under €10 / €20 • Hot drops</p>
+    </div>
+    <div class="hero-right">
+      <!-- upload bfs-mascot.png naast index.html -->
+      <img class="mascot" src="./bfs-mascot.png" alt="BFS mascot" onerror="this.style.display='none'"/>
+    </div>
+  </div>
+</header>
+
+<main class="wrap">
+  <div class="layout">
+    <section>
       <div class="section-title">
         <h2>Super Sneaks Deals</h2>
-        <span class="pill">🔥 Now or Never</span>
+        <span class="pill"><span class="dot"></span> Now or Never</span>
       </div>
-      <section id="super" class="grid" aria-live="polite"></section>
+      <div id="super" class="grid"></div>
+    </section>
 
-      <!-- NORMAL DEALS -->
-      <div class="section-title" style="margin-top:18px">
+    <section>
+      <div class="section-title">
         <h2>Deals</h2>
-        <span class="pill" style="background:var(--bfs-orange);">⚡ Updated Daily</span>
+        <span class="pill"><span class="dot"></span> Updated Daily</span>
       </div>
-      <section id="list" class="grid" aria-live="polite"></section>
-    </main>
+      <div id="list" class="grid"></div>
+    </section>
 
-    <!-- OPTIONAL STICKY SIDEBAR (mascot repeat on desktop) -->
-    <aside class="sticky" aria-hidden="true">
-      <img class="mascot" src="./bfs-mascot.png" alt="" onerror="this.style.display='none'"/>
-    </aside>
+    <p class="footer-note">🦍 Kuch kuch, here we go! <span style="float:right">© <span id="y"></span> <small class="mute">bigfootsneaks</small></span></p>
   </div>
-
-  <div class="wrap">
-    <footer>
-      <div>🦍 Kuch kuch, here we go!</div>
-      <div>© <span id="y"></span> bigfootsneaks</div>
-    </footer>
-  </div>
+</main>
 
 <script>
-// ==================== MINI CMS via CSV ====================
-// CSV: id,title,price,merchant,category,image,url,labels,featured
-// - labels: numbers 1..6 separated by | (e.g. "1|3|6")
-// - featured: true/false (true => candidate for Super Sneaks)
-
+// ===== Mini CMS via CSV =====
+// CSV headers: id,title,price,merchant,category,image,url,labels,featured
+// labels: "1|3|6" → de ÉÉRSTE bepaalt de gradientkleur (l1..l6) voor de onderbalk
 const EUR = new Intl.NumberFormat('nl-NL',{style:'currency',currency:'EUR'});
-const labelMap = { '1':'Label 1','2':'Label 2','3':'Label 3','4':'Label 4','5':'Label 5','6':'Label 6' };
 
 function parseCSV(text){
-  const lines = text.split(/
-?
-/).filter(Boolean);
-  const headers = lines.shift().split(',');
-  const rows = [];
-  for(const line of lines){
-    const out=[]; let cur=''; let q=false; for(let i=0;i<line.length;i++){
-      const ch=line[i];
-      if(ch==='"'){ if(q && line[i+1]==='"'){cur+='"'; i++;} else { q=!q; } }
-      else if(ch===',' && !q){ out.push(cur); cur=''; }
-      else cur+=ch;
-    }
-    out.push(cur);
-    const obj={}; headers.forEach((h,idx)=>obj[h.trim()]=(out[idx]||'').trim()); rows.push(obj);
-  }
-  return rows;
+  const lines = text.split(/\r?\n/).filter(Boolean);
+  const headers = splitRow(lines.shift());
+  return lines.map(line=>{
+    const cells = splitRow(line);
+    const obj={};
+    headers.forEach((h,i)=>obj[h.trim()]=(cells[i]||'').trim());
+    return obj;
+  });
 }
-
-function euro(v){ if(!v) return ''; const n=Number(v); return isFinite(n)? EUR.format(n) : ''; }
+function splitRow(row){
+  const out=[]; let cur=''; let q=false;
+  for(let i=0;i<row.length;i++){
+    const ch=row[i];
+    if(ch==='\"'){ if(q && row[i+1]==='\"'){cur+='\"'; i++;} else q=!q; }
+    else if(ch===',' && !q){ out.push(cur); cur=''; }
+    else cur+=ch;
+  }
+  out.push(cur);
+  return out;
+}
+function euro(v){ if(!v) return ''; const n=Number(v); return isFinite(n)? EUR.format(n):''; }
 function el(tag,cls,txt){ const e=document.createElement(tag); if(cls) e.className=cls; if(txt!=null) e.textContent=txt; return e; }
 
 function render(all){
@@ -177,65 +158,74 @@ function render(all){
   const listWrap  = document.getElementById('list');
   superWrap.innerHTML = listWrap.innerHTML = '';
 
-  // Split sets
   const featured = all.filter(p => (p.featured||'').toLowerCase()==='true');
   const normal   = all.filter(p => (p.featured||'').toLowerCase()!=='true');
 
-  // Always show exactly up to 3 super cards; if fewer featured, top-up from normal
+  // maak altijd 3 super items; aanvullen met voorkeur label 1/2, anders eerste beste
   const superItems = featured.slice(0,3);
   if (superItems.length < 3){
-    const needed = 3 - superItems.length;
-    // choose fillers from normal (prefer those with label 1 or 2, else first items)
+    const need = 3 - superItems.length;
     const preferred = normal.filter(p=>/(^|\|)(1|2)($|\|)/.test(p.labels||''));
     const rest = normal.filter(p=>!preferred.includes(p));
-    superItems.push(...preferred.slice(0,needed));
+    superItems.push(...preferred.slice(0,need));
     if (superItems.length < 3) superItems.push(...rest.slice(0, 3-superItems.length));
   }
 
-  // Items for the big list = everything except those already used in superItems
-  const usedIds = new Set(superItems.map(p=>p.id));
-  const listItems = all.filter(p=>!usedIds.has(p.id));
+  const used = new Set(superItems.map(p=>p.id));
+  const listItems = all.filter(p=>!used.has(p.id));
 
-  const draw = (data, container)=>{
-    data.forEach(p=>{
+  const draw = (items, container)=>{
+    items.forEach(p=>{
       const card = el('article','card');
 
-      // flags
+      // vlaggen
       const labs = (p.labels||'').split('|').map(s=>s.trim()).filter(Boolean);
-      if(labs.includes('2')){ card.appendChild(el('div','flag','24h Drop')); }
-      if(labs.includes('5')){ card.appendChild(el('div','flag','Last Chance')); }
       if((p.featured||'').toLowerCase()==='true' && container===superWrap){
         card.appendChild(el('div','flag green','Super Deal'));
+      }else if(labs.includes('2')){
+        card.appendChild(el('div','flag','24h Drop'));
+      }else if(labs.includes('5')){
+        card.appendChild(el('div','flag','Last Chance'));
       }
 
-      const media = el('div','media'); media.innerHTML=`<img alt="${p.title}" src="${p.image}" loading="lazy">`;
-      const body  = el('div','body');
+      // media + body
+      const media = el('div','media');
+      media.innerHTML = `<img alt="${p.title}" src="${p.image}" loading="lazy">`;
+
+      const body = el('div','body');
       const title = el('div','title',p.title);
-      const meta  = el('div','meta'); meta.innerHTML = `<span>${p.merchant||''}</span><b>${euro(p.price)}</b>`;
+      const meta  = el('div','meta'); 
+      meta.innerHTML = `<span>${p.merchant||''}</span><b>${euro(p.price)}</b>`;
 
-      const labels = el('div','labels');
-      labs.forEach(l=>{ const span=el('span',`label l${l}`,labelMap[l]||`Label ${l}`); labels.appendChild(span); });
+      const cta   = el('div','cta');
+      const shop  = el('a','btn','Shop Now'); shop.href=(p.url||'#'); shop.target='_blank'; shop.rel='noopener';
+      const pin   = el('a','btn secondary','Save Pin');
+      pin.href = `https://www.pinterest.com/pin/create/button/?url=${encodeURIComponent(location.href)}&media=${encodeURIComponent(p.image)}&description=${encodeURIComponent(p.title)}`;
+      pin.target = '_blank'; pin.rel='noopener';
+      cta.append(shop,pin);
 
-      const cta = el('div','cta');
-      const a   = el('a','btn','Shop Now'); a.href=(p.url||'#'); a.target='_blank'; a.rel='noopener';
-      const pin = el('a','btn secondary','Save Pin'); pin.href=`https://www.pinterest.com/pin/create/button/?url=${encodeURIComponent(location.href)}&media=${encodeURIComponent(p.image)}&description=${encodeURIComponent(p.title)}`; pin.target='_blank'; pin.rel='noopener';
-      cta.append(a,pin);
+      body.append(title,meta,cta);
 
-      body.append(title,meta,labels,cta);
-      card.append(media,body);
+      // labelbar (kleur op basis van eerste label)
+      const mainLab = labs[0];
+      const barWrap = el('div','labelbar');
+      if (mainLab) barWrap.appendChild(el('span',`l${mainLab}`));
+
+      card.append(media,body,barWrap);
       container.appendChild(card);
     });
   };
 
-  draw(superItems, superWrap);   // top row (max 3)
-  draw(listItems, listWrap);     // endless grid
+  draw(superItems, superWrap);
+  draw(listItems,  listWrap);
 }
 
 fetch('./products.csv',{cache:'no-store'})
-  .then(r=>{ if(!r.ok) throw new Error('No products.csv'); return r.text(); })
-  .then(txt=>{ const items=parseCSV(txt); render(items); })
+  .then(r=>{ if(!r.ok) throw new Error('no csv'); return r.text(); })
+  .then(t=>render(parseCSV(t)))
   .catch(()=>{
-    document.getElementById('super').innerHTML = '<div style="grid-column:1/-1;padding:16px;border:2px dashed #eee;border-radius:12px;background:#fff">Upload <b>products.csv</b> naast <b>index.html</b> om deals te tonen.</div>';
+    document.getElementById('super').innerHTML =
+      '<div style="grid-column:1/-1;padding:16px;border:2px dashed #eee;border-radius:12px;background:#fff">Upload <b>products.csv</b> naast <b>index.html</b> om deals te tonen.</div>';
   });
 
 document.getElementById('y').textContent = new Date().getFullYear();
