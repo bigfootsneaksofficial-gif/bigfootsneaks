@@ -125,11 +125,133 @@ a{text-decoration:none;color:inherit}
 <script>
 /* Data (pas aan of vul later vanuit CSV): */
 const data = [
-  {id:"ugreen100w-nl", title:"UGREEN USB-C Cable 100W PD 3.0 (1m)", price:7.99, merchant:"Amazon NL", category:"Under €20", image:"https://images.unsplash.com/photo-1585445490387-1f4d1f3a1dba?q=80&w=1200&auto=format&fit=crop", url:"https://amzn.to/42ZuFDV", labels:"1|3", featured:true},
-  {id:"anker-cc-100w-2pack", title:"Anker USB-C to USB-C (100W, 2-pack)", price:8.49, merchant:"Amazon DE", category:"Under €10", image:"https://images.unsplash.com/photo-1609592424700-1b9e16f3f7a3?q=80&w=1200&auto=format&fit=crop", url:"https://amzn.to/4pT6ukv", labels:"2", featured:false},
-  {id:"nike-50-nl", title:"Nike Sneakers — 50% Off Today (NL)", price:null, merchant:"Nike via Sovrn", category:"Today", image:"https://images.unsplash.com/photo-1542291026-7eec264c27ff?q=80&w=1200&auto=format&fit=crop", url:"https://sovrn.co/4zaqqw5", labels:"5", featured:false},
-  {id:"mrsiga", title:"MR.SIGA Microfiber Cloths (12-pack)", price:16.99, merchant:"Amazon DE", category:"Under €20", image:"https://images.unsplash.com/photo-1581578731548-c64695cc6952?q=80&w=1200&auto=format&fit=crop", url:"#", labels:"3|6", featured:false},
-  {id:"pet-bowls", title:"Dog Food & Water Bowl Set", price:13.91, merchant:"Amazon DE", category:"Under €20", image:"https://images.unsplash.com/photo-1546443046-ed1ce6ffd1ed?q=80&w=1200&auto=format&fit=crop", url:"#", labels:"4", featured:false},
+const data = [
+  // === Super Sneaks (3 featured) ===
+  {
+    id: "ugreen100w-nl-1",
+    title: "UGREEN USB-C Cable 100W PD 3.0 (1m)",
+    price: 7.99,
+    merchant: "Amazon NL",
+    category: "Under €20",
+    image: "https://images.unsplash.com/photo-1585445490387-1f4d1f3a1dba?q=80&w=1200&auto=format&fit=crop",
+    url: "https://amzn.to/42ZuFDV",
+    labels: "1|3",
+    featured: true
+  },
+  {
+    id: "ugreen100w-nl-2",
+    title: "UGREEN USB-C Cable 100W PD 3.0 (1m)",
+    price: 7.99,
+    merchant: "Amazon NL",
+    category: "Under €20",
+    image: "https://images.unsplash.com/photo-1585445490387-1f4d1f3a1dba?q=80&w=1200&auto=format&fit=crop",
+    url: "https://amzn.to/42ZuFDV",
+    labels: "2|4",
+    featured: true
+  },
+  {
+    id: "nike-50-nl-1",
+    title: "Nike Sneakers — 50% Off Today (NL)",
+    price: null,
+    merchant: "Nike via Sovrn",
+    category: "Today",
+    image: "https://images.unsplash.com/photo-1542291026-7eec264c27ff?q=80&w=1200&auto=format&fit=crop",
+    url: "https://sovrn.co/4zaqqw5",
+    labels: "5|6",
+    featured: true
+  },
+
+  // === Normale deals (3 x 3 grid) ===
+  {
+    id: "mrsiga-1",
+    title: "MR.SIGA Microfiber Cloths (12-pack)",
+    price: 16.99,
+    merchant: "Amazon DE",
+    category: "Under €20",
+    image: "https://images.unsplash.com/photo-1581578731548-c64695cc6952?q=80&w=1200&auto=format&fit=crop",
+    url: "#",
+    labels: "1|4",
+    featured: false
+  },
+  {
+    id: "pet-bowls-1",
+    title: "Dog Food & Water Bowl Set (Non-Slip)",
+    price: 13.91,
+    merchant: "Amazon DE",
+    category: "Under €20",
+    image: "https://images.unsplash.com/photo-1546443046-ed1ce6ffd1ed?q=80&w=1200&auto=format&fit=crop",
+    url: "#",
+    labels: "2|3",
+    featured: false
+  },
+  {
+    id: "anker-cc-100w-1",
+    title: "Anker USB-C to USB-C (100W, 2-pack)",
+    price: 8.49,
+    merchant: "Amazon DE",
+    category: "Under €10",
+    image: "https://images.unsplash.com/photo-1609592424700-1b9e16f3f7a3?q=80&w=1200&auto=format&fit=crop",
+    url: "https://amzn.to/4pT6ukv",
+    labels: "3|6",
+    featured: false
+  },
+  {
+    id: "nike-50-nl-2",
+    title: "Nike Sneakers — 50% Off Today (NL)",
+    price: null,
+    merchant: "Nike via Sovrn",
+    category: "Today",
+    image: "https://images.unsplash.com/photo-1542291026-7eec264c27ff?q=80&w=1200&auto=format&fit=crop",
+    url: "https://sovrn.co/4zaqqw5",
+    labels: "5",
+    featured: false
+  },
+  {
+    id: "ugreen100w-nl-3",
+    title: "UGREEN USB-C Cable 100W PD 3.0 (1m)",
+    price: 7.99,
+    merchant: "Amazon NL",
+    category: "Under €20",
+    image: "https://images.unsplash.com/photo-1585445490387-1f4d1f3a1dba?q=80&w=1200&auto=format&fit=crop",
+    url: "https://amzn.to/42ZuFDV",
+    labels: "4|6",
+    featured: false
+  },
+  {
+    id: "mrsiga-2",
+    title: "MR.SIGA Microfiber Cloths (12-pack)",
+    price: 16.99,
+    merchant: "Amazon DE",
+    category: "Under €20",
+    image: "https://images.unsplash.com/photo-1581578731548-c64695cc6952?q=80&w=1200&auto=format&fit=crop",
+    url: "#",
+    labels: "2",
+    featured: false
+  },
+  {
+    id: "pet-bowls-2",
+    title: "Dog Food & Water Bowl Set (Non-Slip)",
+    price: 13.91,
+    merchant: "Amazon DE",
+    category: "Under €20",
+    image: "https://images.unsplash.com/photo-1546443046-ed1ce6ffd1ed?q=80&w=1200&auto=format&fit=crop",
+    url: "#",
+    labels: "3",
+    featured: false
+  },
+  {
+    id: "anker-cc-100w-2",
+    title: "Anker USB-C to USB-C (100W, 2-pack)",
+    price: 8.49,
+    merchant: "Amazon DE",
+    category: "Under €10",
+    image: "https://images.unsplash.com/photo-1609592424700-1b9e16f3f7a3?q=80&w=1200&auto=format&fit=crop",
+    url: "https://amzn.to/4pT6ukv",
+    labels: "1|5",
+    featured: false
+  }
+];
+
 ];
 
 /* Helpers */
