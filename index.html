@@ -51,6 +51,20 @@
     @media(max-width:1100px){.layout{grid-template-columns:1fr}}
 
     .sticky{position:sticky;top:16px}
+/* ===== Label bar (kleurverloop) ===== */
+.labelbar{height:10px;border-radius:0 0 14px 14px; overflow:hidden}
+.labelbar > span{display:block;height:100%}
+
+/* Gradients per label */
+.labelbar .l1{background:linear-gradient(90deg,#121214 0%,#3c3f46 100%)}           /* zwart/antraciet */
+.labelbar .l2{background:linear-gradient(90deg,#2b56ff 0%,#7aa2ff 100%)}           /* blauw */
+.labelbar .l3{background:linear-gradient(90deg,#0acf5a 0%,#89f7b2 100%)}           /* groen */
+.labelbar .l4{background:linear-gradient(90deg,#ff3b30 0%,#ff7b73 100%)}           /* rood */
+.labelbar .l5{background:linear-gradient(90deg,#9c27ff 0%,#cf9bff 100%)}           /* paars */
+.labelbar .l6{background:linear-gradient(90deg,#ffb300 0%,#ffd36b 100%)}           /* oranje/geel */
+
+/* subtiele lijn boven de balk */
+.card .labelbar{box-shadow: inset 0 1px 0 rgba(17,19,23,.06)}
 
     /* Cards */
     .grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:16px}
