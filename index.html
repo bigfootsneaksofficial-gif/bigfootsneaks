@@ -135,8 +135,8 @@
       <span class="muted">Follow for laughs & steals</span>
     </div>
   </footer>
- <script>
-/* ==== DATA (één blok) ==== */
+<script>
+/* ==== DATA (compleet) ==== */
 const data = [
   // === Super Sneaks (3 featured) ===
   {
@@ -219,17 +219,6 @@ const data = [
     featured: false
   },
   {
-    id: "anker-cc-100w-dup1",
-    title: "Anker USB-C to USB-C (100W, 2-pack)",
-    price: 8.49,
-    merchant: "Amazon DE",
-    category: "Under €10",
-    image: "https://images.unsplash.com/photo-1609592424700-1b9e16f3f7a3?q=80&w=1200&auto=format&fit=crop",
-    url: "https://amzn.to/4pT6ukv",
-    labels: "2",
-    featured: false
-  },
-  {
     id: "mrsiga-2",
     title: "MR.SIGA Microfiber Cloths (12-pack)",
     price: 16.99,
@@ -252,6 +241,17 @@ const data = [
     featured: false
   },
   {
+    id: "anker-cc-100w-dup1",
+    title: "Anker USB-C to USB-C (100W, 2-pack)",
+    price: 8.49,
+    merchant: "Amazon DE",
+    category: "Under €10",
+    image: "https://images.unsplash.com/photo-1609592424700-1b9e16f3f7a3?q=80&w=1200&auto=format&fit=crop",
+    url: "https://amzn.to/4pT6ukv",
+    labels: "2",
+    featured: false
+  },
+  {
     id: "ugreen100w-nl-4",
     title: "UGREEN USB-C Cable 100W PD 3.0 (1m)",
     price: 7.99,
@@ -261,49 +261,42 @@ const data = [
     url: "https://amzn.to/42ZuFDV",
     labels: "2",
     featured: false
-  },
-  {
-    id: "anker-cc-100w-dup2",
-    title: "Anker USB-C to USB-C (100W, 2-pack)",
-    price: 8.49,
-    merchant: "Amazon DE",
-    category: "Under €10",
-    image: "https://images.unsplash.com/photo-1609592424700-1b9e16f3f7a3?q=80&w=1200&auto=format&fit=crop",
-    url: "https://amzn.to/4pT6ukv",
-    labels: "2|3",
-    featured: false
-
-  /* ==== HELPERS ==== */
-  const fmt = new Intl.NumberFormat('nl-NL',{style:'currency',currency:'EUR'});
-  const € = v => v==null ? "" : fmt.format(+v);
-  const el = q => document.querySelector(q);
-
-  function labelBadges(p){
-    const labs = (p.labels||"").split("|").filter(Boolean);
-    return labs.map(l=>`<span class="label l${l}" title="label ${l}"></span>`).join("");
   }
+];
 
-  function card(p){
-    return `
-      <article class="card">
-        <div class="media">
-          <img src="${p.image}" alt="${p.title}">
-          <div class="badges">${labelBadges(p)}</div>
+/* ==== HELPERS ==== */
+const fmt = new Intl.NumberFormat('nl-NL',{style:'currency',currency:'EUR'});
+const € = v => v==null ? "" : fmt.format(+v);
+const el = q => document.querySelector(q);
+
+function labelBadges(p){
+  const labs = (p.labels||"").split("|").filter(Boolean);
+  return labs.map(l=>`<span class="label l${l}" title="label ${l}"></span>`).join("");
+}
+
+function card(p){
+  return `
+    <article class="card">
+      <div class="media">
+        <img src="${p.image}" alt="${p.title}">
+        <div class="badges">${labelBadges(p)}</div>
+      </div>
+      <div class="body">
+        <div class="title">${p.title}</div>
+        <div class="row small">
+          <span class="meta">${p.merchant} • ${p.category||""}</span>
+          <span class="price">${p.price==null ? "View" : €(p.price)}</span>
         </div>
-        <div class="body">
-          <div class="title">${p.title}</div>
-          <div class="row small">
-            <span class="meta">${p.merchant} • ${p.category||""}</span>
-            <span class="price">${p.price==null ? "View" : €(p.price)}</span>
-          </div>
-          <div class="row">
-            <a class="btn" href="${p.url}" target="_blank" rel="noopener">Save</a>
-            <a class="btn btn--go" href="${p.url}" target="_blank" rel="noopener">Shop now</a>
-          </div>
+        <div class="row">
+          <a class="btn" href="${p.url}" target="_blank" rel="noopener">Save</a>
+          <a class="btn btn--go" href="${p.url}" target="_blank" rel="noopener">Shop now</a>
         </div>
-      </article>
-    `;
-  }
+      </div>
+    </article>
+  `;
+}
+</script>
+
 
   /* ==== RENDER ==== */
   function renderFeatured(){
